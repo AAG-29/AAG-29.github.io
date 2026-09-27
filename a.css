@@ -55,6 +55,7 @@
 /*=============== RESPONSIVE TYPOGRAPHY ===============*/
 
 @media screen and (min-width: 1150px) {
+
   :root {
     --bigger-font-size: 3.5rem;
     --h1-font-size: 2.5rem;
@@ -63,6 +64,7 @@
     --normal-font-size: .95rem;
     --small-font-size: .8rem;
   }
+
 }
 
 
@@ -137,10 +139,13 @@ a {
 
 .section {
   min-height: calc(100vh - var(--header-height));
+
   padding-block: 6rem 2rem;
+
   scroll-margin-top: var(--header-height);
 
   opacity: 0;
+
   transform: translateY(35px);
 
   transition:
@@ -155,12 +160,17 @@ a {
 
 .section__title {
   text-align: center;
+
   font-size: var(--h1-font-size);
+
   color: var(--white-color);
+
   margin-bottom: 3rem;
+
   position: relative;
 
   opacity: 0;
+
   transform: translateY(25px);
 
   transition:
@@ -185,6 +195,7 @@ a {
 /*=============== ANIMATIONS ===============*/
 
 @keyframes fadeUp {
+
   from {
     opacity: 0;
     transform: translateY(30px);
@@ -194,9 +205,11 @@ a {
     opacity: 1;
     transform: translateY(0);
   }
+
 }
 
 @keyframes fadeIn {
+
   from {
     opacity: 0;
   }
@@ -204,9 +217,11 @@ a {
   to {
     opacity: 1;
   }
+
 }
 
 @keyframes imageFloat {
+
   0%,
   100% {
     transform: translateY(0);
@@ -215,21 +230,24 @@ a {
   50% {
     transform: translateY(-8px);
   }
+
 }
 
 
-/*==================================================
-  HEADER & NAVIGATION
-==================================================*/
+/*=============== HEADER & NAV ===============*/
 
 .header {
   position: fixed;
+
   width: 100%;
+
   top: 0;
   left: 0;
+
   z-index: var(--z-fixed);
 
   background-color: rgba(11, 13, 24, .88);
+
   backdrop-filter: blur(14px);
 
   border-bottom: 1px solid rgba(255, 255, 255, .03);
@@ -243,16 +261,18 @@ a {
   height: var(--header-height);
 
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
 }
 
 .nav__logo {
   font-size: 1.1rem;
-  font-weight: var(--font-semi-bold);
-  letter-spacing: -.5px;
 
-  flex-shrink: 0;
+  font-weight: var(--font-semi-bold);
+
+  letter-spacing: -.5px;
 }
 
 .nav__logo span,
@@ -260,38 +280,62 @@ a {
   color: var(--first-color);
 }
 
-
-/*==================================================
-  MOBILE MENU BUTTONS
-==================================================*/
-
 .nav__toggle,
 .nav__close {
   font-size: 1.5rem;
+
   cursor: pointer;
 }
 
 .nav__toggle {
   display: flex;
-  align-items: center;
-  justify-content: center;
-
-  color: var(--white-color);
 }
 
 
-/*==================================================
-  NAV LIST
-==================================================*/
+/*=============== MOBILE NAVIGATION ===============*/
 
-.nav__list {
-  display: flex;
+/*
+  IMPORTANT:
+  The mobile menu is only active below 1150px.
+  Desktop navigation is completely reset inside
+  the desktop media query near the bottom.
+*/
 
-  flex-direction: column;
+@media screen and (max-width: 1149px) {
 
-  align-items: center;
+  .nav__menu {
+    position: fixed;
 
-  row-gap: 2rem;
+    top: -100%;
+    left: 0;
+
+    width: 100%;
+
+    padding: 5rem 1.5rem 3rem;
+
+    background-color: var(--container-color);
+
+    border-bottom: 1px solid var(--border-color);
+
+    transition: top .4s ease;
+
+    z-index: var(--z-fixed);
+  }
+
+  .nav__menu.show-menu {
+    top: 0;
+  }
+
+  .nav__list {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    row-gap: 2rem;
+  }
+
 }
 
 .nav__link {
@@ -319,63 +363,10 @@ a {
 
   top: 1rem;
   right: 1.5rem;
-
-  color: var(--white-color);
 }
 
 
-/*==================================================
-  MOBILE NAVIGATION
-  ONLY APPLIES BELOW 1150PX
-==================================================*/
-
-@media screen and (max-width: 1149px) {
-
-  .nav__menu {
-    position: fixed;
-
-    top: -100%;
-    left: 0;
-
-    width: 100%;
-
-    padding: 5rem 1.5rem 3rem;
-
-    background-color: var(--container-color);
-
-    border-bottom: 1px solid var(--border-color);
-
-    box-shadow: 0 15px 30px rgba(0, 0, 0, .2);
-
-    transition: top .4s ease;
-
-    z-index: var(--z-fixed);
-  }
-
-  .nav__menu.show-menu {
-    top: 0;
-  }
-
-  .nav__list {
-    flex-direction: column;
-    align-items: center;
-    row-gap: 1.75rem;
-  }
-
-  .nav__link {
-    font-size: .9rem;
-  }
-
-  .nav__close {
-    display: block;
-  }
-
-}
-
-
-/*==================================================
-  HEADER SHADOW
-==================================================*/
+/*=============== HEADER SHADOW ===============*/
 
 .shadow-header {
   box-shadow:
@@ -383,9 +374,7 @@ a {
 }
 
 
-/*==================================================
-  HOME
-==================================================*/
+/*=============== HOME ===============*/
 
 .home {
   min-height: 100vh;
@@ -552,9 +541,7 @@ a {
 }
 
 
-/*==================================================
-  HOME PROFILE IMAGE
-==================================================*/
+/*=============== HOME PROFILE IMAGE ===============*/
 
 .home__image {
   width: 300px;
@@ -623,9 +610,7 @@ a {
 }
 
 
-/*==================================================
-  ABOUT
-==================================================*/
+/*=============== ABOUT ===============*/
 
 .about {
   background-color: rgba(18, 21, 34, .35);
@@ -746,9 +731,7 @@ a {
 }
 
 
-/*==================================================
-  ABOUT SKILLS
-==================================================*/
+/*=============== ABOUT SKILLS ===============*/
 
 .about__skills {
   margin-top: 2rem;
@@ -868,7 +851,7 @@ a {
 
 
 /*==================================================
-  PROJECT CARDS
+  PROJECT BASE CARDS
 ==================================================*/
 
 .project--featured,
@@ -1320,7 +1303,12 @@ a {
 
   grid-template-columns: 1fr 1fr;
 
-  grid-template-rows: auto auto auto auto auto;
+  grid-template-rows:
+    auto
+    auto
+    auto
+    auto
+    auto;
 
   column-gap: 4rem;
 
@@ -1340,6 +1328,11 @@ a {
 
   min-height: 500px;
 }
+
+
+/*==================================================
+  FLASHLEARN IMAGES — LEFT
+==================================================*/
 
 .project__card--flashlearn .project__images {
   grid-column: 1;
@@ -1403,7 +1396,7 @@ a {
 
 
 /*==================================================
-  FLASHLEARN CONTENT
+  FLASHLEARN CONTENT — RIGHT
 ==================================================*/
 
 .project__card--flashlearn > .project__type {
@@ -1849,9 +1842,7 @@ a {
 }
 
 
-/*==================================================
-  SCROLL BAR
-==================================================*/
+/*=============== SCROLL BAR ===============*/
 
 ::-webkit-scrollbar {
   width: .5rem;
@@ -1872,9 +1863,7 @@ a {
 }
 
 
-/*==================================================
-  SCROLL UP
-==================================================*/
+/*=============== SCROLL UP ===============*/
 
 .scrollup {
   position: fixed;
@@ -1917,8 +1906,11 @@ a {
 
 
 /*==================================================
-  SMALL DEVICES
+  BREAKPOINTS
 ==================================================*/
+
+
+/*========== Small devices ==========*/
 
 @media screen and (max-width: 575px) {
 
@@ -2088,12 +2080,11 @@ a {
   .project__images--phone {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
 }
 
 
-/*==================================================
-  MEDIUM DEVICES
-==================================================*/
+/*========== Medium devices ==========*/
 
 @media screen and (min-width: 576px) {
 
@@ -2127,7 +2118,12 @@ a {
 
     grid-template-columns: 1fr 1fr;
 
-    grid-template-rows: auto auto auto auto auto;
+    grid-template-rows:
+      auto
+      auto
+      auto
+      auto
+      auto;
 
     column-gap: 2.5rem;
 
@@ -2212,12 +2208,11 @@ a {
   .project__card--classmates .project__image {
     height: 330px;
   }
+
 }
 
 
-/*==================================================
-  LARGE DEVICES
-==================================================*/
+/*========== Large devices ==========*/
 
 @media screen and (min-width: 768px) {
 
@@ -2271,7 +2266,12 @@ a {
 
     grid-template-columns: 1fr 1fr;
 
-    grid-template-rows: auto auto auto auto auto;
+    grid-template-rows:
+      auto
+      auto
+      auto
+      auto
+      auto;
 
     column-gap: 3rem;
 
@@ -2322,51 +2322,92 @@ a {
     grid-column: 2;
     grid-row: 5;
   }
+
 }
 
 
 /*==================================================
   DESKTOP NAVIGATION
-  1150PX AND ABOVE
 ==================================================*/
 
 @media screen and (min-width: 1150px) {
 
+  /* ================================
+     CONTAINER
+  ================================= */
+
   .container {
-    max-width: 1120px;
     margin-inline: auto;
   }
 
 
-  /* IMPORTANT:
-     Desktop menu is normal/static.
-     It is NOT fixed and NOT hidden.
+  /* ================================
+     DESKTOP NAV
+  ================================= */
+
+  .nav {
+    height: var(--header-height);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+  }
+
+
+  /*
+    CRITICAL FIX:
+
+    Reset ALL mobile navigation properties.
+
+    Without these resets, the mobile:
+      position: fixed
+      top
+      left
+      width
+      padding
+      background
+      border
+
+    remain active on desktop.
   */
 
   .nav__menu {
     position: static;
 
+    top: auto;
+    left: auto;
+
     width: auto;
 
+    height: auto;
+
     padding: 0;
+
+    margin: 0;
 
     background-color: transparent;
 
     border: none;
-
-    box-shadow: none;
 
     display: block;
 
     visibility: visible;
 
     opacity: 1;
+
+    transform: none;
+
+    transition: none;
+
+    z-index: auto;
   }
 
 
-  /* IMPORTANT:
-     Desktop navigation MUST be horizontal.
-  */
+  /* ================================
+     DESKTOP NAV LIST
+  ================================= */
 
   .nav__list {
     display: flex;
@@ -2380,27 +2421,59 @@ a {
     column-gap: 2.5rem;
 
     row-gap: 0;
+
+    margin: 0;
+
+    padding: 0;
   }
 
+
+  /* ================================
+     DESKTOP NAV LINKS
+  ================================= */
 
   .nav__link {
     display: inline-flex;
 
     align-items: center;
 
+    justify-content: center;
+
     white-space: nowrap;
 
+    color: var(--gray-color);
+
     font-size: .8rem;
+
+    font-weight: var(--font-medium);
+
+    padding: 0;
+
+    margin: 0;
   }
 
+  .nav__link:hover {
+    color: var(--white-color);
+  }
+
+  .nav__link.active-link {
+    color: var(--first-color);
+  }
+
+
+  /* ================================
+     HIDE MOBILE BUTTONS
+  ================================= */
 
   .nav__toggle,
   .nav__close {
-    display: none;
+    display: none !important;
   }
 
 
-  /* Home */
+  /* ================================
+     HOME
+  ================================= */
 
   .home__container {
     grid-template-columns: 1.2fr .8fr;
@@ -2411,18 +2484,24 @@ a {
   }
 
   .home__visual {
+    display: flex;
+
     justify-content: center;
   }
 
 
-  /* Sections */
+  /* ================================
+     SECTIONS
+  ================================= */
 
   .section {
     padding-block: 8rem 3rem;
   }
 
 
-  /* Neo Vara */
+  /* ================================
+     NEO VARA
+  ================================= */
 
   .project--featured {
     grid-template-columns: .85fr 1.15fr;
@@ -2437,7 +2516,9 @@ a {
   }
 
 
-  /* Classmates */
+  /* ================================
+     CLASSMATES
+  ================================= */
 
   .project__card--classmates {
     grid-template-columns: .85fr 1.15fr;
@@ -2456,14 +2537,21 @@ a {
   }
 
 
-  /* FlashLearn */
+  /* ================================
+     FLASHLEARN DESKTOP
+  ================================= */
 
   .project__card--flashlearn {
     grid-column: 1 / -1;
 
     grid-template-columns: 1fr 1fr;
 
-    grid-template-rows: auto auto auto auto auto;
+    grid-template-rows:
+      auto
+      auto
+      auto
+      auto
+      auto;
 
     column-gap: 4rem;
 
@@ -2481,6 +2569,9 @@ a {
 
     align-items: center;
   }
+
+
+  /* LEFT SIDE — PHONES */
 
   .project__card--flashlearn .project__images {
     grid-column: 1;
@@ -2509,6 +2600,9 @@ a {
 
     aspect-ratio: 9 / 16;
   }
+
+
+  /* RIGHT SIDE — ALL CONTENT */
 
   .project__card--flashlearn > .project__type {
     grid-column: 2;
@@ -2573,7 +2667,9 @@ a {
   }
 
 
-  /* Normal project images */
+  /* ================================
+     NORMAL PROJECT IMAGES
+  ================================= */
 
   .project__images {
     gap: 1rem;
@@ -2586,12 +2682,11 @@ a {
   .project__images--phone .project__image {
     aspect-ratio: 9 / 16;
   }
+
 }
 
 
-/*==================================================
-  2K RESOLUTIONS
-==================================================*/
+/*========== 2K resolutions ==========*/
 
 @media screen and (min-width: 1600px) {
 
@@ -2641,7 +2736,12 @@ a {
 
     grid-template-columns: 1fr 1fr;
 
-    grid-template-rows: auto auto auto auto auto;
+    grid-template-rows:
+      auto
+      auto
+      auto
+      auto
+      auto;
 
     column-gap: 4rem;
 
@@ -2659,12 +2759,11 @@ a {
 
     aspect-ratio: 9 / 16;
   }
+
 }
 
 
-/*==================================================
-  REDUCED MOTION
-==================================================*/
+/*=============== REDUCED MOTION ===============*/
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -2673,11 +2772,13 @@ a {
   }
 
   *,
-  *::before {
+  *::before,
+  *::after {
     animation-duration: .01ms !important;
 
     animation-iteration-count: 1 !important;
 
     transition-duration: .01ms !important;
   }
+
 }
